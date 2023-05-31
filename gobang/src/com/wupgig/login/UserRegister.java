@@ -230,7 +230,7 @@ public class UserRegister extends Stage{
 		nowUser.setAccount(accountString);
 		// md5加密密码
 		nowUser.setPassword(MD5Util.digest(confirmPassword.getText()));
-		nowUser.setRegTime(new Timestamp(System.currentTimeMillis()));
+		//nowUser.setRegTime(new Timestamp(System.currentTimeMillis()));
 		Connection conn = null;
 		try {
 			conn = JdbcUtils.getConnection();

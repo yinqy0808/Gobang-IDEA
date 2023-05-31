@@ -11,7 +11,7 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 	@Override
 	public User queryUserByAccount(String account) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT id,account,`password`,regtime regTime,score,"
+		String sql = "SELECT id,account,`password`,score,"
 				+ "totalnums totalNums,winnums winNums,lostnums lostNums,drawnums drawNums" + 
 				" FROM chess_user WHERE account = ?";
 		return select(User.class, sql, account);
@@ -23,7 +23,7 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 	@Override
 	public User queryUserByAccountAndPassword(String account, String password) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT id,account,`password`,regtime regTime"
+		String sql = "SELECT id,account,`password`"
 				+ ",score,totalnums totalNums,winnums winNums,lostnums lostNums,drawnums drawNums" + 
 				" FROM chess_user WHERE account = ? and password = ?";
 		return select(User.class, sql, account, password);
@@ -34,8 +34,8 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 	@Override
 	public int saveUser(User user) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO chess_user VALUES(?,?,?,?,?,?,?,?,?)";
-		return update(sql, null,user.getAccount(), user.getPassword(),user.getRegTime(),
+		String sql = "INSERT INTO chess_user VALUES(?,?,?,?,?,?,?,?)";
+		return update(sql, null,user.getAccount(), user.getPassword(),
 				 100, 0, 0, 0, 0);
 	}
 	/**

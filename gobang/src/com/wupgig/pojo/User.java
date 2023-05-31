@@ -20,7 +20,7 @@ public class User implements Serializable{
 	// 用户密码
 	private String password;
 	// 注册时间
-	private Timestamp regTime;
+	//private Timestamp regTime;
 //	private String regTime;
 	// 积分
 	private int score;
@@ -51,12 +51,12 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public Timestamp getRegTime() {
+	/*public Timestamp getRegTime() {
 		return regTime;
-	}
-	public void setRegTime(Timestamp regTime) {
+	}*/
+	/*public void setRegTime(Timestamp regTime) {
 		this.regTime = regTime;
-	}
+	}*/
 	public int getScore() {
 		return score;
 	}
@@ -78,7 +78,7 @@ public class User implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", account=" + account + ", password=" + password + ", regTime=" + regTime
+		return "User [id=" + id + ", account=" + account + ", password=" + password
 				+ ", score=" + score + ", totalNums=" + totalNums + ", winNums=" + winNums + ", lostNums=" + lostNums
 				+ ", drawNums=" + drawNums + "]";
 	}

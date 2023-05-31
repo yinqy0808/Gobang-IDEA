@@ -30,5 +30,4 @@ public class TextMessage extends Message{
 		this.textMessage = textMessage;
 	}
 	
-	
 }

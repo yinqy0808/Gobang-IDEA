@@ -14,14 +14,14 @@ public class Global {
 	// 自己的ip
 	public static String myIP;
 	// 自己的端口号
-	public static int myPort = 8089;
+	public static int myPort = 8088;
 	// 对手的ip
 	public static String oppoIP;
 	// 临时对手ip，用于新局
 	public static String temporaryOppoIP;
 	
 	// 对手的端口号
-	public static int oppoPort = 8088;
+	public static int oppoPort = 8089;
 	// 用户账号
 	public static String account;
 	// 棋盘信息

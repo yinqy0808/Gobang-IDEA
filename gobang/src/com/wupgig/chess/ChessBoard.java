@@ -308,7 +308,7 @@ public class ChessBoard extends Stage{
 		this.setScene(scene);
 		
 		// 设置初始背景图
-		ImageView imageView = new ImageView("images/白连衣裙樱花.jpg");
+		ImageView imageView = new ImageView("images/1.jpeg");
 		pane.getChildren().add(imageView);
 	}
 	/**
@@ -539,9 +539,9 @@ public class ChessBoard extends Stage{
 		double width = screenRectangle.getWidth();
 		double height = screenRectangle.getHeight();
 		
-		ImageView imageView1 = new ImageView("images/李白.jpg");
-		ImageView imageView2 = new ImageView("images/貂蝉.jpg");
-		ImageView imageView3 = new ImageView("images/鹿.jpg");
+		ImageView imageView1 = new ImageView("images/1.jpeg");
+		ImageView imageView2 = new ImageView("images/2.jpeg");
+/*			ImageView imageView3 = new ImageView("images/鹿.jpg");
 		ImageView imageView4 = new ImageView("images/古风美少女伞.jpg");
 		ImageView imageView5 = new ImageView("images/静态山水.jpg");
 		ImageView imageView6 = new ImageView("images/长头发女孩.jpg");
@@ -555,8 +555,9 @@ public class ChessBoard extends Stage{
 		imageList.add(imageView5);
 		imageList.add(imageView6);
 		imageList.add(imageView7);
-		imageList.add(imageView8);
-		imageList.add(imageView9);
+		imageList.add(imageView8);*/
+		imageList.add(imageView1);
+		imageList.add(imageView2);
 	}
 	/**
 	 * 消息发送文本框，消息显示框
@@ -1716,10 +1717,10 @@ public class ChessBoard extends Stage{
 		this.withDrawButton();
 		
 		// 保存棋谱按钮
-		this.saveChessBookButton();
+		this.musicButton();
 		
 		// 打开棋谱按钮
-		this.openChessBookButton();
+		this.giveUpButton();
 		// 退出按钮
 		this.exitButton();
 		
@@ -1742,7 +1743,9 @@ public class ChessBoard extends Stage{
 		this.nextPageButton();
 		
 		// 其它下拉按钮
-		this.otherButton();
+		//this.otherButton();
+		//求助小棋仙按钮
+		this.helpRobotButton();
 			
 	}
 	
@@ -1753,13 +1756,13 @@ public class ChessBoard extends Stage{
 	* @version
 	* @date 2021年4月6日下午10:20:20
 	 */
-	private void otherButton() {
+/*	private void otherButton() {
 		// 创建下拉按钮
 		menuButton = new SplitMenuButton();
 		menuButton.setText("其它按钮");
 		menuButton.setPrefSize(90, 40);
 		menuButton.setLayoutX(890);
-		menuButton.setLayoutY(650);
+		menuButton.setLayoutY(665);
 		
 		// 创建下拉按钮中的轮播按钮
 		MenuItem menuItemPlayImages = new MenuItem(null, playImagesButton());
@@ -1777,7 +1780,7 @@ public class ChessBoard extends Stage{
 		menuButton.getItems().addAll(menuRobot, menuItemPlayImages, menuMusic, menuItemgiveUp);
 		pane.getChildren().add(menuButton);
 		
-	}
+	}*/
 	/**
 	 * 求助小棋仙按钮
 	* @Description 
@@ -1788,6 +1791,9 @@ public class ChessBoard extends Stage{
 	private Button helpRobotButton() {
 		Button helpRobotButton = new Button("求助小棋仙");
 		helpRobotButton.setPrefSize(80, 40);
+		helpRobotButton.setLayoutX(770);
+		helpRobotButton.setLayoutY(665);
+		pane.getChildren().add(helpRobotButton);
 		helpRobotButton.setOnAction(e -> {
 			// 求助小棋仙按钮逻辑实现
 			this.helpRobot();
@@ -1823,7 +1829,7 @@ public class ChessBoard extends Stage{
 		}
 	}
 	// 控制背景音乐的播放和暂停
-	private Button musicButton() {
+/*	private Button musicButton() {
 		musicButton = new Button("暂停音乐");
 		musicButton.setPrefSize(80, 40);
 		
@@ -1840,7 +1846,7 @@ public class ChessBoard extends Stage{
 			}
 		});
 		return musicButton;
-	}
+	}*/
 	/**
 	 * 认输按钮
 	* @Description 
@@ -1849,7 +1855,7 @@ public class ChessBoard extends Stage{
 	* @date 2021年4月6日下午11:00:28
 	* @return
 	 */
-	private Button giveUpButton() {
+/*	private Button giveUpButton() {
 		Button giveUpButton = new Button("认     输");
 		giveUpButton.setPrefSize(80, 40);
 		
@@ -1883,7 +1889,7 @@ public class ChessBoard extends Stage{
 		});
 		
 		return giveUpButton;
-	}
+	}*/
 	/**
 	 * 图片轮播按钮
 	* @Description 
@@ -1894,17 +1900,17 @@ public class ChessBoard extends Stage{
 
 	 */
 	private Button playImagesButton() {
-		Button playImagesButton = new Button("开始轮播");
+		Button playImagesButton = new Button("切换背景");
 		playImagesButton.setPrefSize(80, 40);
 		
 		// 轮播背景图按钮逻辑实现
 		playImagesButton.setOnAction(e -> {
 			if (playImages) {
 				timeline.stop();
-				playImagesButton.setText("开始轮播");
+				playImagesButton.setText("日间模式");
 			} else {
-				timeline.play();
-				playImagesButton.setText("暂停轮播");
+			timeline.play();
+				playImagesButton.setText("夜间模式");
 			}
 			playImages = !playImages;
 		});
@@ -2101,7 +2107,7 @@ public class ChessBoard extends Stage{
 		Button button = new Button("新      局");
 		button.setPrefSize(80, 40);
 		button.setLayoutX(50);
-		button.setLayoutY(650);
+		button.setLayoutY(665);
 		
 		// 将按钮添加到棋盘
 		pane.getChildren().add(button);
@@ -2235,8 +2241,8 @@ public class ChessBoard extends Stage{
 	private void exitButton() {
 		Button button = new Button("退     出");
 		button.setPrefSize(80, 40);
-		button.setLayoutX(530);
-		button.setLayoutY(650);
+		button.setLayoutX(890);
+		button.setLayoutY(665);
 		// 将按钮添加到棋盘
 		pane.getChildren().add(button);
 		// 退出逻辑
@@ -2276,33 +2282,55 @@ public class ChessBoard extends Stage{
 		}
 	}
 	/**
-	 * 保存棋谱按钮
+	 * 认输按钮
 	* @Description 
 	* @author wupgig
 	* @version
 	* @date 2021年3月23日上午8:19:48
 	 */
-	private void saveChessBookButton() {
-		Button button = new Button("保存棋谱");
-		button.setPrefSize(80, 40);
-		button.setLayoutX(290);
-		button.setLayoutY(650);
+	private Button giveUpButton() {
+		Button giveUpButton = new Button("认     输");
+		giveUpButton.setPrefSize(80, 40);
+		giveUpButton.setLayoutX(290);
+		giveUpButton.setLayoutY(665);
 
-		// 将按钮添加到棋盘
-		pane.getChildren().add(button);
-		// 将棋局信息写入文件保存到本地
-		button.setOnAction(e -> {
-			this.saveChessBook();
+		pane.getChildren().add(giveUpButton);
+		giveUpButton.setOnAction(e -> {
+			if (gameOver) {
+				return;
+			}
+
+			Alert alert = new Alert(AlertType.CONFIRMATION, "你确定认输吗？",
+					new ButtonType("取消",  ButtonData.NO),
+					new ButtonType("确定",  ButtonData.YES));
+			alert.initOwner(this);
+			Optional<ButtonType> button = alert.showAndWait();
+			if (button.get().getButtonData() == ButtonData.YES) {
+				NetUtils.sendMessage(new GiveUpMessage(), Global.oppoIP);
+
+				// 认输，给对手发送消息，对手将更新数据库
+				ResultMessage resultMessage = new ResultMessage();
+				resultMessage.setAccount(Global.account);
+				resultMessage.setResult(Color.BLACK.equals(this.color) ?
+						ResultMessage.WHITE_WIN : ResultMessage.BLACK_WIN);
+
+				// 发送对战结果消息
+				NetUtils.sendMessage(resultMessage, Global.oppoIP);
+
+				// 认输后处理逻辑
+				this.specialLose();
+			}
 		});
+		return giveUpButton;
 	}
-	
+
 	/**
 	 * 将本局棋谱信息写入文件中
-	* @Description 
+	* @Description
 	* @author wupgig
 	* @version
 	* @date 2021年3月23日上午8:20:22
-	 */
+	 *//*
 	private void saveChessBook() {
 		if (!gameOver) {
 			Alert alert = new Alert(AlertType.INFORMATION,"棋局未结束，不能保存棋谱！");
@@ -2316,7 +2344,7 @@ public class ChessBoard extends Stage{
 			alert.show();
 			return;
 		}
-		
+
 		FileChooser fChooser = new FileChooser();
 		// 设置保存文件对话框的标题
 		fChooser.setTitle("保存棋谱");
@@ -2324,14 +2352,14 @@ public class ChessBoard extends Stage{
 		fChooser.setInitialDirectory(new File(System.getProperty("user.home")));
 		// 设置文件后缀
 		fChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("csv", "*.csv"));
-		
+
 		// 打开文件保存对话框
 		File file = fChooser.showSaveDialog(this);
 		// 点击取消，取消保存
 		if (file == null) {
 			return;
 		}
-		
+
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
 			// 将chessList中棋子的信息遍历写入到文件中
 			for (Chess chess : chessList) {
@@ -2344,7 +2372,7 @@ public class ChessBoard extends Stage{
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-	}
+	}*/
 	/**
 	 * 打开棋谱按钮
 	* @Description 
@@ -2352,18 +2380,27 @@ public class ChessBoard extends Stage{
 	* @version
 	* @date 2021年3月23日上午8:23:33
 	 */
-	private void openChessBookButton() {
-		Button button = new Button("打开棋谱");
-		button.setPrefSize(80, 40);
-		button.setLayoutX(410);
-		button.setLayoutY(650);
+	private Button musicButton() {
+		musicButton = new Button("暂停音乐");
+		musicButton.setPrefSize(80, 40);
+		musicButton.setLayoutX(410);
+		musicButton.setLayoutY(665);
 		
 		// 将按钮添加到棋盘
-		pane.getChildren().add(button);
+		pane.getChildren().add(musicButton);
 		// 从文件中读取欢迎棋局的信息
-		button.setOnAction(e -> {
-			this.openChessBook();
+		musicButton.setOnAction(e -> {
+			if (playMusic) {
+				this.mediaPlayer.pause();
+				playMusic = !playMusic;
+				musicButton.setText("播放音乐");
+			} else {
+				this.mediaPlayer.play();
+				playMusic = !playMusic;
+				musicButton.setText("暂停音乐");
+			}
 		});
+		return musicButton;
 	}
 	
 	/**
@@ -2372,7 +2409,7 @@ public class ChessBoard extends Stage{
 	* @author wupgig
 	* @version
 	* @date 2021年3月23日上午8:24:01
-	 */
+	 *//*
 	private void openChessBook() {
 		if (!gameOver) {
 			Alert alert = new Alert(AlertType.INFORMATION,"棋局未结束，不能打开棋谱！");
@@ -2444,7 +2481,7 @@ public class ChessBoard extends Stage{
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-	}
+	}*/
 	/**
 	 * 棋谱下一步按钮
 	* @Description 
@@ -2591,7 +2628,7 @@ public class ChessBoard extends Stage{
 		Button button = new Button("悔      棋");
 		button.setPrefSize(80, 40);
 		button.setLayoutX(170);
-		button.setLayoutY(650);
+		button.setLayoutY(665);
 		
 		// 将按钮添加到棋盘
 		pane.getChildren().add(button);
@@ -2656,8 +2693,8 @@ public class ChessBoard extends Stage{
 	private void myRecordButton() {
 		Button myRecordButton = new Button("我的战绩");
 		myRecordButton.setPrefSize(80, 40);
-		myRecordButton.setLayoutX(650);
-		myRecordButton.setLayoutY(650);
+		myRecordButton.setLayoutX(530);
+		myRecordButton.setLayoutY(665);
 		pane.getChildren().add(myRecordButton);
 		
 		myRecordButton.setOnAction(e -> {
@@ -2677,8 +2714,8 @@ public class ChessBoard extends Stage{
 	private void rivalRecordButton() {
 		Button rivalRecordButton = new Button("对手战绩");
 		rivalRecordButton.setPrefSize(80, 40);
-		rivalRecordButton.setLayoutX(770);
-		rivalRecordButton.setLayoutY(650);
+		rivalRecordButton.setLayoutX(650);
+		rivalRecordButton.setLayoutY(665);
 		pane.getChildren().add(rivalRecordButton);
 		
 		rivalRecordButton.setOnAction(e -> {
@@ -2710,7 +2747,7 @@ public class ChessBoard extends Stage{
 	}
 	/**
 	 * 当前线程睡眠20毫秒，用于修复棋子落子后偶尔没有落子声的未知bug
-	* @Description 
+	* @Description
 	* @author wupgig
 	* @version
 	* @date 2021年4月6日下午1:30:10
